@@ -1,10 +1,25 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+// 导入了 vuex
 import store from './store'
+
+// 自己封装的 插件对象
+import AxiosPlugs from '@/utils/request.js'
+
+// 导入字体图标
+import '@/styles/index.css'
+
+// 导入vant
+import Vant from 'vant'
+import 'vant/lib/index.css'
+Vue.use(Vant)
+// 使用 将axios封装的插件
+Vue.use(AxiosPlugs)
 
 Vue.config.productionTip = false
 
+// Vue.use(Cell).use(CellGroup)
 new Vue({
   router,
   store,
