@@ -10,10 +10,14 @@ import AxiosPlugs from '@/utils/request.js'
 // 导入字体图标
 import '@/styles/index.css'
 
-// 导入vant
-import Vant from 'vant'
+// 导入vant  按需导入{ Lazyload } 因为不导入应该用不了
+import Vant, { Lazyload } from 'vant'
 import 'vant/lib/index.css'
+
+// options 为可选参数，无则不传
+Vue.use(Lazyload)
 Vue.use(Vant)
+
 // 使用 将axios封装的插件
 Vue.use(AxiosPlugs)
 

@@ -16,7 +16,7 @@ function removeUserLocal () {
 
 // 查询
 function getUserLocal () {
-  window.localStorage.getItem(USER_KEY)
+  return JSON.parse(window.localStorage.getItem(USER_KEY))
 }
 export {
   setUserLocal,

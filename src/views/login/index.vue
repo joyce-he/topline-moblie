@@ -29,7 +29,7 @@
     </van-cell-group>
     <van-cell-group>
       <div class="login-btn">
-        <van-button slot="button" class="btn" type="info" size="large" @click="login">登录</van-button>
+        <van-button slot="button" class="btn" type="info" size="large" @click="login" :loading="loginLoading">登录</van-button>
       </div>
     </van-cell-group>
   </div>
@@ -50,7 +50,9 @@ export default {
       errmsg: {
         mobile: '',
         code: ''
-      }
+      },
+      // 加载图案 的显示隐藏 默认隐藏
+      loginLoading: false
     }
   },
   methods: {
@@ -59,6 +61,7 @@ export default {
       if (!this.validData()) {
         return
       }
+      this.loginLoading = true
       this.$http({
         url: '/authorizations',
         method: 'post',
@@ -67,7 +70,10 @@ export default {
         // 保存到 localStorage 中
         // window.localStorage.setItem('user', JSON.stringify(res.data.data))
         setUserLocal(res)
+        console.log(res)
+        // 跳转到home页面
         this.$router.push('/home')
+        this.loginLoading = false
       }).catch(err => {
         console.log(err)
         console.log('登录失败')
@@ -75,12 +81,12 @@ export default {
     },
     // 验证user 中的参数是否 为空
     validData () {
-      if (this.mobile.trim().length === 0) {
+      if (this.user.mobile.trim().length === 0) {
         this.errmsg.mobile = '手机号不能为空'
         return false
       }
-      if (this.code.trim().length !== 11) {
-        this.errmsg.code = '手机号必须是11位'
+      if (this.user.mobile.trim().length !== 11) {
+        this.errmsg.mobile = '手机号必须是11位'
         return false
       }
       // 将错误信息 重置为空

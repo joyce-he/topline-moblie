@@ -1,6 +1,5 @@
 <template>
   <div>
-    <van-nav-bar title="登录" />
     <router-view />
     <van-tabbar>
       <van-tabbar-item router-to="/home" icon="home-o">首页</van-tabbar-item>
@@ -22,22 +21,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.van-nav-bar.van-hairline--bottom {
-  background: #3296fa;
-  .van-nav-bar__title.van-ellipsis {
-    color: #fff;
-  }
-}
-.icon-shouji {
-  font-size: 18px;
-}
-.icon-icon-- {
-  font-size: 25px;
-}
-.login-btn {
-  margin: 15px;
-  .btn {
-    border-radius: 5px;
-  }
-}
+// .van-nav-bar.van-hairline--bottom {
+//   background: #3296fa;
+//   .van-nav-bar__title.van-ellipsis {
+//     color: #fff;
+//   }
+//  }
+// .mytop {
+//   position: fixed;
+//   z-index: 10000;
+//   width: 100%;
+// }
 </style>

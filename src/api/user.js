@@ -9,7 +9,7 @@
 
 function userLogin (axios, { url, method, data }) {
   return axios({
-    url: url + 'ext',
+    url: url,
     method: method,
     data: data
   })
